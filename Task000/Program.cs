@@ -29,15 +29,38 @@ PrintArrey(collection);
        void PrintArrey(string[] col)
 
        {
-
+         Console.Write("["); 
          int count = col.Length;
 
          int position = 0;
 
-         while (position < count)
+         while (position < count-1)
 
          {
-             Console.Write(col[position]);
+             Console.Write($"\"{col[position]}\" ,");
              position++;
          }
+         if (position == count-1)
+         {
+            Console.Write($"\"{col[position]}\" ");
+         } 
+         Console.Write("]");
        }  
+
+
+int NewArraySize(string[] col)
+{
+    int count = 0;
+    for (int i = 0; i < col.Length; i++)
+    {
+        int length = col[i].Length;
+        if(length<=3)//int length = str.Length;
+        {
+            count=count+1;
+        }
+    }
+    return count;
+}
+
+int countt = NewArraySize(collection);
+Console.WriteLine(countt);
