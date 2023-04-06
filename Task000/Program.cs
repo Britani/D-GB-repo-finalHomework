@@ -10,42 +10,47 @@
 
 Console.WriteLine("Зададим длинну будущего массива");
 int size = Convert.ToInt32(Console.ReadLine());
-string[] collection = new string[size]; 
+string[] collection = new string[size];
 FillArray(collection);
 PrintArrey(collection);
+int newSize = NewArraySize(collection);
+string[] newCollection = new string [newSize];
+CreateNewArray(collection, newCollection);
+Console.Write(" -> ");
+PrintArrey(newCollection);
 
-       void FillArray(string[] coll)
-       {
-           int length = coll.Length;
-           int index = 0;
-           while (index < length)
-           {
-               Console.WriteLine($"Введите элемент с индексом {index}");
-               coll[index] = Console.ReadLine();//new Random().Next(1, 10);
-               index++;
-           }
-       }
+void FillArray(string[] coll)
+{
+    int length = coll.Length;
+    int index = 0;
+    while (index < length)
+    {
+        Console.WriteLine($"Введите элемент с индексом {index}");
+        coll[index] = Console.ReadLine();//new Random().Next(1, 10);
+        index++;
+    }
+}
 
-       void PrintArrey(string[] col)
+void PrintArrey(string[] col)
 
-       {
-         Console.Write("["); 
-         int count = col.Length;
+{
+    Console.Write("[");
+    int count = col.Length;
 
-         int position = 0;
+    int position = 0;
 
-         while (position < count-1)
+    while (position < count - 1)
 
-         {
-             Console.Write($"\"{col[position]}\" ,");
-             position++;
-         }
-         if (position == count-1)
-         {
-            Console.Write($"\"{col[position]}\" ");
-         } 
-         Console.Write("]");
-       }  
+    {
+        Console.Write($"\"{col[position]}\" ,");
+        position++;
+    }
+    if (position == count - 1)
+    {
+        Console.Write($"\"{col[position]}\" ");
+    }
+    Console.Write("]");
+}
 
 
 int NewArraySize(string[] col)
@@ -53,14 +58,27 @@ int NewArraySize(string[] col)
     int count = 0;
     for (int i = 0; i < col.Length; i++)
     {
-        int length = col[i].Length;
-        if(length<=3)//int length = str.Length;
+        //int length = col[i].Length;
+        if (col[i].Length <= 3)//int length = str.Length;
         {
-            count=count+1;
+            count ++;
         }
     }
     return count;
 }
 
-int countt = NewArraySize(collection);
-Console.WriteLine(countt);
+void CreateNewArray(string[] col,string[] newCol)
+{
+    int index = 0;
+   for (int i = 0; i < col.Length; i++)
+   {
+      if (col[i].Length<=3)
+      {
+        newCol[index]=col[i];
+        index++;
+        
+      }
+    }
+}
+
+
