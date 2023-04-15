@@ -10,14 +10,20 @@
 
 Console.WriteLine("Зададим длинну будущего массива");
 int size = Convert.ToInt32(Console.ReadLine());
-string[] collection = new string[size];
+if (size>=0)
+{
+
+  string[] collection = new string[size];
 FillArray(collection);
 PrintArrey(collection);
 int newSize = NewArraySize(collection);
 string[] newCollection = new string [newSize];
 FillNewArray(collection, newCollection);
 Console.Write(" -> ");
-PrintArrey(newCollection);
+PrintArrey(newCollection);  
+}
+else Console.Write(" Не коректные значения ");
+
 
 void FillArray(string[] coll)
 {
