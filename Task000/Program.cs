@@ -15,7 +15,7 @@ FillArray(collection);
 PrintArrey(collection);
 int newSize = NewArraySize(collection);
 string[] newCollection = new string [newSize];
-CreateNewArray(collection, newCollection);
+FillNewArray(collection, newCollection);
 Console.Write(" -> ");
 PrintArrey(newCollection);
 
@@ -67,7 +67,7 @@ int NewArraySize(string[] col)
     return count;
 }
 
-void CreateNewArray(string[] col,string[] newCol)
+void FillNewArray(string[] col,string[] newCol)
 {
     int index = 0;
    for (int i = 0; i < col.Length; i++)
