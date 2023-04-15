@@ -25,8 +25,8 @@ void FillArray(string[] coll)
     int index = 0;
     while (index < length)
     {
-        Console.WriteLine($"Введите элемент с индексом {index}");
-        coll[index] = Console.ReadLine();//new Random().Next(1, 10);
+        Console.WriteLine($"Введите элемент номер {index+1}");
+        coll[index] = Console.ReadLine();
         index++;
     }
 }
